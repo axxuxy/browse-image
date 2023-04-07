@@ -132,20 +132,22 @@ function slideShow(directory: ImageDirectory) {
   document.body.click();
 }
 function removeDirectory(directory: ImageDirectory) {
-  const index = store.directorys.indexOf(directory);
+  if (route.name === "images" && decodeURI(route.query.path as string) === directory.path) {
+    const index = store.directorys.indexOf(directory);
+    const dir = store.directorys[index + 1] || store.directorys[index - 1];
+    if (dir)
+      router.push({
+        path: "/images",
+        query: {
+          path: dir.path,
+        },
+      });
+    else
+      router.push({
+        path: "/",
+      });
+  }
   store.removeImageDirectory(directory.path);
-  const dir = store.directorys[index];
-  if (dir)
-    router.push({
-      path: "/images",
-      query: {
-        path: dir.path,
-      },
-    });
-  else
-    router.push({
-      path: "/",
-    });
   document.body.click();
 }
 </script>
