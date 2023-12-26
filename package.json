@@ -46,7 +46,7 @@
     "unplugin-icons": "^0.16.1",
     "unplugin-vue-components": "^0.24.1",
     "vite": "^4.2.1",
-    "vite-plugin-electron": "git+https://axxuxy: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@github.com/axxuxy/vite-plugin-electron.git",
+    "vite-plugin-electron": "github:axxuxy/vite-plugin-electron",
     "vitest": "^0.29.8",
     "vue-tsc": "^1.2.0"
   }
